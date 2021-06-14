@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROCK PAPER SCISSORS</title>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <h2>Rock Paper Scissors   123</h2>
+    <script>
+        function computerPlay() {
+
+            let input = Math.floor(Math.random() * 10);
+            //console.log(input);
+            switch (input) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    console.log('Rocks');
+                    return 'Rock';
+                    break;
+
+                case 4:
+                case 5:
+                case 6:
+                    console.log('Paper');
+                    return 'Paper';
+                    break;
+
+                case 7:
+                case 8:
+                case 9:
+                    console.log('Scissors');
+                    return 'Scissors';
+                    break;
+            }
+        };
+        function playRound(playerSelection, computerSelection) {
+            // your code here!
+            const player = playerSelection.toLowerCase();
+            const computer = computerSelection.toLowerCase();
+            if (player === computer) {
+                return 'Tie';
+            }
+            else if (player == 'rock') {
+                if (computer == 'paper') {
+                    return 'Computer';
+
+                } else {
+                    return 'Player';
+                }
+            }
+            else if (player == 'scissors') {
+                if (computer == 'rock') {
+                    return 'Computer';
+                } else {
+                    return 'Player';
+                }
+            }
+            else if (player == 'paper') {
+                if (computer == 'scissors') {
+                    return 'Computer';
+
+                } else {
+                    return 'Player';
+
+                }
+            }
+        }
+
+        function game() {
+            var playerScore=0;
+            var computerScore=0
+            var scoreCard=[];
+            for (let index = 0; index < 5; index++) {
+                const playerSelection = window.prompt('Enter your choice');
+                const computerSelection = computerPlay();
+                let winner=playRound(playerSelection, computerSelection);
+                scoreCard.push(winner);
+               // console.log(`${index+
+                //1} round winner is: ${winner}`);
+                if (winner==='Player') {
+                    playerScore++;
+                } else if(winner==='Computer'){
+                    computerScore++;
+                }else{
+                    playerScore++;
+                    computerScore++;
+                }
+  
+                
+            }
+           for (let index = 0; index < scoreCard.length; index++) {
+            console.log(`${index+1} round winner is ${scoreCard[index]}`);
+            
+               
+           }
+           console.log(`Player score: ${playerScore}`);
+           console.log(`Computer score: ${computerScore}`);
+           if (playerScore> computerScore) {
+               console.log(`Player is winner`);
+           } else {
+               console.log(`Computer is winner`);
+           }
+        }
+    </script>
+
+</body>
+
+</html>
