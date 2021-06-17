@@ -14,9 +14,10 @@
     
 
 }
-.live{
+.olive{
     width: 200px;
     height: 200px;
+    
      
 }
 #popeye{
@@ -26,4 +27,5 @@
     grid-column-end: 2;
     grid-row-start:3 ;
     grid-row-end:4 ;
+    
 }
