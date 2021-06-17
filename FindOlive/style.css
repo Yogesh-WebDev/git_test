@@ -1,0 +1,29 @@
+.container {
+    
+}
+
+.game-container{
+    width: 1200px;
+    height: 600px;
+    border: 1px solid red;
+    background-image: url(./assets/img/BG.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    
+
+}
+.live{
+    width: 200px;
+    height: 200px;
+     
+}
+#popeye{
+    width: 200px;
+    height: 200px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start:3 ;
+    grid-row-end:4 ;
+}
