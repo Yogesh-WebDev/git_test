@@ -1,0 +1,11 @@
+#container{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    grid-auto-flow: dense;
+    grid-auto-rows: 1fr;
+    background-color: black;
+    height: 960px;
+    width: 960px;
+    
+}
