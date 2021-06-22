@@ -13,75 +13,92 @@ start.addEventListener('click', function () {
 
 function clearAllThings() {
     var elements = document.querySelectorAll('.btnCls');
-
+    var elementDiv = document.querySelector('#btnDiv');
+    
     elements.forEach(element => {
-        backGround.removeChild(element)
+        element.parentNode.removeChild(element);
     });
+
     clearPreviousGame();
 
-};
 
+
+};
+function getDataOfPosition() {
+    const positionElm = document.querySelector('.popeyeCls');
+    const oliveEle=document.querySelectorAll('.oliveClass');
+    popeye.setAttribute('src','./assets/img/popeye-walking.png');
+    oliveEle.forEach(element =>{
+        console.log();
+        if (positionElm.offsetTop===element.offsetTop && positionElm.offsetLeft===element.offsetLeft && element.getAttribute("alt")==='original') {
+            positionElm.setAttribute('src','./assets/img/popeye-win.png');
+        }
+    })
+
+};
+function moveUp() {
+    popeye.style.cssText = `
+        grid-column-start: ${(getComputedStyle(popeye).gridColumnStart)};
+        grid-column-end: ${(getComputedStyle(popeye).gridColumnEnd)};
+        grid-row-start:${((getComputedStyle(popeye).gridRowStart) - 1) < 1 ? 3 : (getComputedStyle(popeye).gridRowStart) - 1} ;
+        grid-row-end:${((getComputedStyle(popeye).gridRowEnd) - 1) < 2 ? 4 : (getComputedStyle(popeye).gridRowEnd) - 1} ;
+       
+        `;
+    getDataOfPosition();
+}
+function moveDown() {
+    popeye.style.cssText = `
+    grid-column-start: ${(getComputedStyle(popeye).gridColumnStart)};
+    grid-column-end: ${(getComputedStyle(popeye).gridColumnEnd)};
+    grid-row-start:${((getComputedStyle(popeye).gridRowStart) + 1) > 3 ? 1 : (getComputedStyle(popeye).gridRowStart) + 1} ;
+    grid-row-end:${((getComputedStyle(popeye).gridRowEnd) + 1) > 4 ? 2 : (getComputedStyle(popeye).gridRowEnd) + 1}  ;
+    
+    
+    `;
+    getDataOfPosition();
+}
+function moveRight() {
+    popeye.style.cssText = `
+        grid-column-start: ${((getComputedStyle(popeye).gridColumnStart) + 1) > 6 ? 1 : (getComputedStyle(popeye).gridColumnStart) + 1};
+        grid-column-end: ${((getComputedStyle(popeye).gridColumnEnd) + 1) > 7 ? 2 : (getComputedStyle(popeye).gridColumnEnd) + 1};
+        grid-row-start:${(getComputedStyle(popeye).gridRowStart)} ;
+        grid-row-end:${(getComputedStyle(popeye).gridRowEnd)} ;
+
+        
+        `;
+        getDataOfPosition();
+}
+
+function moveLeft() {
+    popeye.style.cssText = `
+        grid-column-start: ${((getComputedStyle(popeye).gridColumnStart) - 1) < 1 ? 6 : (getComputedStyle(popeye).gridColumnStart) - 1};
+        grid-column-end: ${((getComputedStyle(popeye).gridColumnEnd) - 1) < 2 ? 7 : (getComputedStyle(popeye).gridColumnEnd) - 1};
+        grid-row-start:${(getComputedStyle(popeye).gridRowStart)} ;
+        grid-row-end:${(getComputedStyle(popeye).gridRowEnd)} ;
+        
+        
+        `;
+        getDataOfPosition();
+}
 function startToPlay() {
     generateNextGame();
-    const toggleButtons = document.createElement('div');
-    toggleButtons.innerHTML = `
-            <button id="up" class="btnCls">UP</button>
-            <button id="down" class="btnCls">DOWN</button>
-            <button id="right" class="btnCls">RIGHT</button>
-            <button id="left" class="btnCls">LEFT</button>
-    `;
-    backGround.appendChild(toggleButtons);
-        const up = document.querySelector('#up');
-        const down = document.querySelector('#down');
-        const right = document.querySelector('#right');
-        const left = document.querySelector('#left');
-       
-       
-    up.addEventListener('click', function () {
-        popeye.style.cssText = `
-        grid-column-start: ${(getComputedStyle(popeye).gridColumnStart)};
-        grid-column-end: ${(getComputedStyle(popeye).gridColumnEnd)};
-        grid-row-start:${((getComputedStyle(popeye).gridRowStart)-1)<1 ?3:(getComputedStyle(popeye).gridRowStart)-1} ;
-        grid-row-end:${((getComputedStyle(popeye).gridRowEnd)-1)<2?4:(getComputedStyle(popeye).gridRowEnd)-1} ;
-        width: 100px;
-        height: 100px;
-        z-index:1;
-        `;
-
+    document.addEventListener('keydown', function(e) {
+        switch (e.keyCode) {
+            case 37:
+                moveLeft();
+                break;
+            case 38:
+               moveUp();
+                break;
+            case 39:
+                moveRight();
+                break;
+            case 40:
+                moveDown();
+                break;
+        }
     });
-    down.addEventListener('click', function () {
-        popeye.style.cssText = `
-        grid-column-start: ${(getComputedStyle(popeye).gridColumnStart)};
-        grid-column-end: ${(getComputedStyle(popeye).gridColumnEnd)};
-        grid-row-start:${((getComputedStyle(popeye).gridRowStart)+1)>3?1:(getComputedStyle(popeye).gridRowStart)+1} ;
-        grid-row-end:${((getComputedStyle(popeye).gridRowEnd)+1)>4?2:(getComputedStyle(popeye).gridRowEnd)+1}  ;
-        width: 100px;
-        height: 100px;
-        z-index:1;
-        `;
-    });
-    right.addEventListener('click', function () {
-        popeye.style.cssText = `
-        grid-column-start: ${((getComputedStyle(popeye).gridColumnStart)+1)>11?1:(getComputedStyle(popeye).gridColumnStart)+1};
-        grid-column-end: ${((getComputedStyle(popeye).gridColumnEnd)+1)>12?2:(getComputedStyle(popeye).gridColumnEnd)+1};
-        grid-row-start:${(getComputedStyle(popeye).gridRowStart)} ;
-        grid-row-end:${(getComputedStyle(popeye).gridRowEnd)} ;
-        width: 100px;
-        height: 100px;
-        z-index:1;
-        `;
-    });
-    left.addEventListener('click', function () {
-        popeye.style.cssText = `
-        grid-column-start: ${((getComputedStyle(popeye).gridColumnStart)-1)<1?11:(getComputedStyle(popeye).gridColumnStart)-1};
-        grid-column-end: ${((getComputedStyle(popeye).gridColumnEnd)-1)<2?12:(getComputedStyle(popeye).gridColumnEnd)-1};
-        grid-row-start:${(getComputedStyle(popeye).gridRowStart)} ;
-        grid-row-end:${(getComputedStyle(popeye).gridRowEnd)} ;
-        width: 100px;
-        height: 100px;
-        z-index:1;
-        `;
-    });
+    
 
 };
 reset.addEventListener('click', function () {
@@ -106,20 +123,34 @@ function generateNextGame() {
         olive.setAttribute('src', './assets/img/olive.png');
         olive.setAttribute('id', `olive${++idIdex}`);
         olive.classList.add('oliveClass');
+        if (index === 3) {
+            olive.setAttribute('alt', `original`);
+        }
 
-        let columnIndex = Math.round(Math.random() * 10);
-        let rowIndex = Math.round(Math.random() * 10);
+        let columnIndex = getRandomIntInclusive(1, 6);
+        let rowIndex = getRandomIntInclusive(1, 3);
+
 
         olive.style.cssText = `
-            grid-column-start: ${(columnIndex<12)? columnIndex:1};
+            grid-column-start: ${columnIndex};
             grid-column-end: ${columnIndex++};
-            grid-row-start:${(rowIndex < 4) ? rowIndex : 1} ;
+            grid-row-start:${rowIndex} ;
             grid-row-end:2 ${rowIndex++};
-            width: 100px;
-            height: 100px;
-            z-index:2;
+
+            width: 200px;
+            height: 200px;
+            
+            
             `;
         console.log(olive);
         game.appendChild(olive);
+
+
+
     }
+}
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
 }

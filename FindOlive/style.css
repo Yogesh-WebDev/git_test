@@ -9,7 +9,8 @@
     background-image: url(./assets/img/BG.jpg);
     background-size: cover;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    display: absolute;
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 1fr);
     
 
@@ -17,7 +18,7 @@
 .olive{
     width: 200px;
     height: 200px;
-    
+    z-index: 2;
      
 }
 #popeye{
@@ -27,5 +28,6 @@
     grid-column-end: 2;
     grid-row-start:3 ;
     grid-row-end:4 ;
+    z-index: 1;
     
 }
