@@ -50,8 +50,8 @@ function moveDown() {
     popeye.style.cssText = `
     grid-column-start: ${(getComputedStyle(popeye).gridColumnStart)};
     grid-column-end: ${(getComputedStyle(popeye).gridColumnEnd)};
-    grid-row-start:${((getComputedStyle(popeye).gridRowStart) + 1) > 3 ? 1 : (getComputedStyle(popeye).gridRowStart) + 1} ;
-    grid-row-end:${((getComputedStyle(popeye).gridRowEnd) + 1) > 4 ? 2 : (getComputedStyle(popeye).gridRowEnd) + 1}  ;
+    grid-row-start:${(Number(getComputedStyle(popeye).gridRowStart) + 1) > 3 ? 1 : Number(getComputedStyle(popeye).gridRowStart) + 1} ;
+    grid-row-end:${(Number(getComputedStyle(popeye).gridRowEnd) + 1) > 4 ? 2 : Number(getComputedStyle(popeye).gridRowEnd) + 1}  ;
     
     
     `;
@@ -59,8 +59,8 @@ function moveDown() {
 }
 function moveRight() {
     popeye.style.cssText = `
-        grid-column-start: ${((getComputedStyle(popeye).gridColumnStart) + 1) > 6 ? 1 : (getComputedStyle(popeye).gridColumnStart) + 1};
-        grid-column-end: ${((getComputedStyle(popeye).gridColumnEnd) + 1) > 7 ? 2 : (getComputedStyle(popeye).gridColumnEnd) + 1};
+        grid-column-start: ${(Number(getComputedStyle(popeye).gridColumnStart) + 1) > 6 ? 1 : Number(getComputedStyle(popeye).gridColumnStart) + 1};
+        grid-column-end: ${(Number(getComputedStyle(popeye).gridColumnEnd) + 1) > 7 ? 2 : Number(getComputedStyle(popeye).gridColumnEnd) + 1};
         grid-row-start:${(getComputedStyle(popeye).gridRowStart)} ;
         grid-row-end:${(getComputedStyle(popeye).gridRowEnd)} ;
 

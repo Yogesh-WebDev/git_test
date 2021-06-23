@@ -1,0 +1,22 @@
+#gameBoard tr td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;
+    
+    
+}
+#game{
+    width: 70%;
+   
+}
+
+#gameBoard{
+    width: 15%;
+    margin: 40px;
+}
+
+.btn{
+    padding: 30px;
+    
+}
