@@ -1,61 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe game </title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <div id="container">
-        <h1>Tic Tac Toe game </h1>
-        <div id="payerInput">
-            <table>
-                <tr>
-                    <td>Player 1 Name:</td>
-                    <td><input type="text" name="" id=""></td>
-                </tr>
-                <tr>
-                    <td>Player 2 Name:</td>
-                    <td><input type="text" name="" id=""></td>
-                </tr>
-            </table>
-            <div id="game">
-                <table id="gameBoard">
-                    <tr>
-                        <td><button class="btn" value="1"></button></td>
-                        <td><button class="btn" value="2"></button></td>
-                        <td><button class="btn" value="3"></button></td>
-                        
-                    </tr>
-                    <tr>
-                        <td><button class="btn" value="4"></button></td>
-                        <td><button class="btn" value="5"></button></td>
-                        <td><button class="btn" value="6"></button></td>
-                        
-                    </tr>
-                    <tr>
-                        <td><button class="btn" value="7"></button></td>
-                        <td><button class="btn" value="8"></button></td>
-                        <td><button class="btn" value="9"></button></td>
-                        
-                    </tr>
-                </table>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <h2>Tic Tac Toe</h2>
+      </header>
+      <div class="game-container">
+        <div class="buttons">
+          <input id="plr1" type="text" name="plr1" placeholder="Player 1 is O" />
+          <input id="plr2" type="text" name="plr2" placeholder="Player 2 is X" />
+          <input id="startBtn" type="button" name="start" value="Start Game">
+        </div>
+        <div class="gameplay-container">
+          <div id="a" class="gameplay-row">
+            <div id="a1" class="gameplay-cell">
             </div>
-
+            <div id="a2" class="gameplay-cell">
+            </div>
+            <div id="a3" class="gameplay-cell">
+            </div>
+          </div>
+          <div id="b" class="gameplay-row">
+            <div id="b1" class="gameplay-cell">
+            </div>
+            <div id="b2" class="gameplay-cell">
+            </div>
+            <div id="b3" class="gameplay-cell">
+            </div>
+          </div>
+          <div id="c" class="gameplay-row">
+            <div id="c1" class="gameplay-cell">
+            </div>
+            <div id="c2" class="gameplay-cell">
+            </div>
+            <div id="c3" class="gameplay-cell">
+            </div>
+          </div>
         </div>
-        <div id="result">
-
+        <div class="winner">
+          <h2 id="winner-text"></h2>
         </div>
-
+      </div>
     </div>
-
-
-
-    <script src="script.js"></script>
-</body>
-
+    <script src="script.js" charset="utf-8"></script>
+  </body>
 </html>
