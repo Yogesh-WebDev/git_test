@@ -1,0 +1,11 @@
+function rangeOfNumbers(startNum, endNum) {
+  if(startNum > endNum && startNum<1 ){
+    return [];
+  }else if(startNum===endNum){
+    return [startNum]
+  }else{
+    const counterNum=rangeOfNumbers(startNum,endNum-1);
+    counterNum.push(endNum);
+    return counterNum;
+  }
+};
