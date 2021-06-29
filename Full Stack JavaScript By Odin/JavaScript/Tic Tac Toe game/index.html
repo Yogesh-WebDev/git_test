@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <h2>Tic Tac Toe</h2>
+      </header>
+      <div class="game-container">
+        <div class="buttons">
+          <input id="plr1" type="text" name="plr1" placeholder="Player 1 is O" />
+          <input id="plr2" type="text" name="plr2" placeholder="Player 2 is X" />
+          <input id="startBtn" type="button" name="start" value="Start Game">
+        </div>
+        <div class="gameplay-container">
+          <div id="a" class="gameplay-row">
+            <div id="a1" class="gameplay-cell">
+            </div>
+            <div id="a2" class="gameplay-cell">
+            </div>
+            <div id="a3" class="gameplay-cell">
+            </div>
+          </div>
+          <div id="b" class="gameplay-row">
+            <div id="b1" class="gameplay-cell">
+            </div>
+            <div id="b2" class="gameplay-cell">
+            </div>
+            <div id="b3" class="gameplay-cell">
+            </div>
+          </div>
+          <div id="c" class="gameplay-row">
+            <div id="c1" class="gameplay-cell">
+            </div>
+            <div id="c2" class="gameplay-cell">
+            </div>
+            <div id="c3" class="gameplay-cell">
+            </div>
+          </div>
+        </div>
+        <div class="winner">
+          <h2 id="winner-text"></h2>
+        </div>
+      </div>
+    </div>
+    <script src="script.js" charset="utf-8"></script>
+  </body>
+</html>
