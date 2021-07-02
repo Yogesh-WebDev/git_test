@@ -18,7 +18,7 @@ const windDeg=document.querySelector('#windDeg');
 const windSpeed=document.querySelector('#windSpeed');
 
 async function getCurrentWeather (scanCity,scanUnit){
-    let urlString=`https://api.openweathermap.org/data/2.5/weather?q=${scanCity}&units=${scanUnit}&appid=05b2df000b660b76d5ecc9aacf0faaa0`;
+    let urlString=`https://api.openweathermap.org/data/2.5/weather?q=${scanCity}&units=${scanUnit}&appid=`;
     const response=await fetch(urlString,{ mode: 'cors' });
     const data = await response.json();
     //console.log(response);
