@@ -1,47 +1,59 @@
+//Form validation
 
-
-//form validation
 let registrationForm=document.querySelector('#register-form');
-registrationForm.addEventListener('submit',function(event){
-    event.preventDefault();//stops auto form submission
-    
-   if( validateForm()){
-       alert('Form is submitted auccessfully');
-   }
-});
+registrationForm.addEventListener('submit',function (event) {
+    event.preventDefault();
 
-
-let validateForm = () => {
-    return(checkUserName() &
-    checkEmail() &
-    checkPassword() &
-    checkConfirmPassword());
-};
-
-let checkUserName = () => {
-    let inputEl=document.querySelector('#username');
-    let inputFeedbackEl=document.querySelector('#username-feedback');
-    let regExp=/^[a-zA-Z0-9]{4,10}$/;
-    if (regExp.test(inputEl.value)) {
-        makeValid(inputEl , inputFeedbackEl);
-        return true;
-    }else{
-        makeInValid(inputEl , inputFeedbackEl);
-        return false;
+    if (validateForm()) {
+        alert('Form is submitted successfully');
     }
-};
-let checkEmail = () => {
+})
+
+let validateForm=()=>{
+    return(
+        checkEmail() &
+        checkZipCode() &
+        checkCountry() &
+        checkPassword() &
+        checkConfirmPassword() 
+    );
+}
+let checkEmail=()=>{
     let inputEl=document.querySelector('#email');
     let inputFeedbackEl=document.querySelector('#email-feedback');
     let regExp=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (regExp.test(inputEl.value)) {
-        makeValid(inputEl , inputFeedbackEl);
+        makeValid(inputEl,inputFeedbackEl);
         return true;
-    }else{
-        makeInValid(inputEl , inputFeedbackEl);
+    } else {
+        makeInValid(inputEl,inputFeedbackEl);
         return false;
     }
-};
+}
+let checkZipCode=()=>{
+    let inputEl=document.querySelector('#zipCode');
+    let inputFeedbackEl=document.querySelector('#zipCode-feedback');
+    let regExp=/^[1-9][0-9]{5}$/;
+    if (regExp.test(inputEl.value)) {
+        makeValid(inputEl,inputFeedbackEl);
+        return true;
+    } else {
+        makeInValid(inputEl,inputFeedbackEl);
+        return false;
+    }
+}
+let checkCountry=()=>{
+    let inputEl=document.querySelector('#country');
+    let inputFeedbackEl=document.querySelector('#country-feedback');
+    let regExp='India';
+    if (regExp ===inputEl.value) {
+        makeValid(inputEl,inputFeedbackEl);
+        return true;
+    } else {
+        makeInValid(inputEl,inputFeedbackEl);
+        return false;
+    }
+}
 let checkPassword = () => {
     let inputEl=document.querySelector('#password');
     let inputFeedbackEl=document.querySelector('#password-feedback');
@@ -84,15 +96,21 @@ let makeInValid = (inputEl , inputFeedbackEl) => {
     inputFeedbackEl.innerText=`Please enter a ${inputEl.placeholder}`;
 };
 
-//username field with keyup event
-let usernameEl=document.querySelector('#username');
-usernameEl.addEventListener('keyup',function(){
-    checkUserName();
+//zipcode field with keyup event
+let zipcodeEl=document.querySelector('#zipCode');
+zipcodeEl.addEventListener('keyup',function(){
+    checkZipCode();
 });
 //email field with keyup event
 let emailEl=document.querySelector('#email');
 emailEl.addEventListener('keyup',function(){
     checkEmail();
+});
+
+//country field with keyup event
+let countryEl=document.querySelector('#country');
+countryEl.addEventListener('keyup',function(){
+    checkCountry();
 });
 //password field with keyup event
 let passwordEl=document.querySelector('#password');
