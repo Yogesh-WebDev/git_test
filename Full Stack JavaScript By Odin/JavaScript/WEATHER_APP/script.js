@@ -19,7 +19,7 @@ const windSpeed=document.querySelector('#windSpeed');
 
 async function getCurrentWeather (scanCity,scanUnit){
     let urlString=`https://api.openweathermap.org/data/2.5/weather?q=${scanCity}&units=${scanUnit}`;
-    const response=await fetch(urlString,{ mode: 'cors' });
+    const response=await fetch(urlString,{ mode: "cors" });
     const data = await response.json();
     //console.log(response);
     console.log(urlString);
@@ -33,13 +33,13 @@ async function getDetailsObject(scanCity,scanUnit){
         name:   data.name,
         feelsLike:  data.main.feels_like,
         temp:   data.main.temp,
-        temp_min:   data.main.temp_min,
+                        temp_min:   data.main.temp_min,
         temp_max:   data.main.temp_max,
         pressure:   data.main.pressure,
-        humidity:   data.main.humidity,
+                 humidity:   data.main.humidity,
         main:   data.weather[0].main,
         description:    data.weather[0].description,
-        icon:   data.weather[0].icon,
+                   icon:   data.weather[0].icon,
         windSpeed:  data.wind.speed,
         windDeg:    data.wind.deg,
         lon:    data.coord.lon,
