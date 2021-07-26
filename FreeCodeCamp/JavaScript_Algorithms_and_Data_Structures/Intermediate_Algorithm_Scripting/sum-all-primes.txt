@@ -1,0 +1,11 @@
+function sumPrimes(num) {
+  let primeSeri=[]
+  
+  for(let i=2;i<=num;i++){
+    if(primeSeri.every(prime=>i%prime !==0))
+    primeSeri.push(i)
+  }
+  return primeSeri.reduce((sum,num)=>sum+num,0)
+}
+
+sumPrimes(10);

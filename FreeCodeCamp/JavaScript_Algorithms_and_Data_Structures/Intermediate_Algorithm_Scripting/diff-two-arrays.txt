@@ -1,0 +1,15 @@
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  function diff(ele1,ele2){
+    for(let i=0;i<ele1.length;i++){
+     if(ele2.indexOf(ele1[i])===-1){
+      newArr.push(ele1[i]);
+     }
+    }
+  }
+  diff(arr1,arr2);
+  diff(arr2,arr1);
+  return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);

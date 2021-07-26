@@ -1,0 +1,12 @@
+function sumFibs(num) {
+  if(num<0) return 0
+  let febSeries=[1,1];
+  let result=0
+  while((result=febSeries[0]+febSeries[1]) <= num){
+        febSeries.unshift(result)
+  }
+ 
+  return febSeries.filter(ele=>ele%2 != 0).reduce((sum,ele)=>sum+=ele)
+}
+
+sumFibs(4);

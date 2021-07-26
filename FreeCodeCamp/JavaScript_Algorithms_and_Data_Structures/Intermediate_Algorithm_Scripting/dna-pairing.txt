@@ -1,0 +1,29 @@
+function pairElement(str) {
+  let newArr=[]
+  let newStr=str.split("");
+  for(let i=0;i<str.length;i++){
+    newArr.push(generateArr(newStr[i]))
+  }
+  function generateArr(sstr){
+    let result=[]
+    switch(sstr){
+      case "G":
+        result.push("G","C")
+        break
+      case "C":
+        result.push("C","G")
+        break
+      case "A":
+        result.push("A","T")
+        break
+      case "T":
+        result.push("T","A")
+        break
+    }
+    return result
+  }
+
+  return newArr;
+}
+
+pairElement("GCG");
